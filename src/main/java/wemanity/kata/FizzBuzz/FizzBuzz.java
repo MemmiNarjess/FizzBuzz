@@ -20,7 +20,10 @@ public class FizzBuzz {
 	 * @param rules : rules to apply
 	 */
 	public void print(Range range, List<Rule> rules) {
-		// TODO
+		for (int i = range.getFrom(); i <= range.getTo(); i++) {
+			String stringToprint = getValueToPrint(i, "", rules);
+			System.out.println(stringToprint);
+		}
 	}
 
 	/**
@@ -31,8 +34,12 @@ public class FizzBuzz {
 	 * @return string to print
 	 */
 	public String getValueToPrint(int i, String valueToPrint, List<Rule> rules) {
-		// TODO
-		return StringUtils.EMPTY;
+		for (Rule rule : rules) {
+			if (isDivisibleBy(i, rule.getNumber())) {
+				valueToPrint += rule.getValue();
+			}
+		}
+		return valueToPrint == "" ? Integer.toString(i) : valueToPrint;
 	}
 
 	/**
@@ -43,8 +50,7 @@ public class FizzBuzz {
 	 * @return Boolean
 	 */
 	public Boolean isDivisibleBy(int number, int divider) {
-		// TODO
-		return true;
+		return number % divider == 0;
 	}
 
 }
