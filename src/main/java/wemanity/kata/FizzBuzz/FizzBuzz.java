@@ -2,8 +2,6 @@ package wemanity.kata.FizzBuzz;
 
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import wemanity.kata.FizzBuzz.Entity.Range;
 import wemanity.kata.FizzBuzz.Entity.Rule;
 
@@ -35,7 +33,7 @@ public class FizzBuzz {
 	 */
 	public String getValueToPrint(int i, String valueToPrint, List<Rule> rules) {
 		for (Rule rule : rules) {
-			if (isDivisibleBy(i, rule.getNumber())) {
+			if (isDivisibleBy(i, rule.getNumber()) || containsNumber(i, rule.getNumber())) {
 				valueToPrint += rule.getValue();
 			}
 		}
@@ -51,6 +49,17 @@ public class FizzBuzz {
 	 */
 	public Boolean isDivisibleBy(int number, int divider) {
 		return number % divider == 0;
+	}
+
+	/**
+	 * return if the number contains the divider
+	 * 
+	 * @param number
+	 * @param divider
+	 * @return
+	 */
+	public Boolean containsNumber(int number, int divider) {
+		return Integer.toString(number).contains(Integer.toString(divider));
 	}
 
 }

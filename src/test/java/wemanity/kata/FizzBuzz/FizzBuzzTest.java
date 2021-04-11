@@ -39,11 +39,15 @@ public class FizzBuzzTest {
 	public void getValueToPrint_should_return_Fizz() {
 		String result = fizzBuzz.getValueToPrint(3, StringUtils.EMPTY, rules);
 		assertEquals("Fizz", result);
+		result = fizzBuzz.getValueToPrint(13, StringUtils.EMPTY, rules);
+		assertEquals("Fizz", result);
 	}
 
 	@Test
 	public void getValueToPrint_should_return_Buzz() {
 		String result = fizzBuzz.getValueToPrint(5, StringUtils.EMPTY, rules);
+		assertEquals("Buzz", result);
+		result = fizzBuzz.getValueToPrint(56, StringUtils.EMPTY, rules);
 		assertEquals("Buzz", result);
 	}
 
@@ -62,6 +66,18 @@ public class FizzBuzzTest {
 	@Test
 	public void isDivisibleBy_should_return_false() {
 		Boolean result = fizzBuzz.isDivisibleBy(3, 5);
+		assertFalse(result);
+	}
+	
+	@Test
+	public void containsNumber_should_return_true() {
+		Boolean result = fizzBuzz.containsNumber(3, 3);
+		assertTrue(result);
+	}
+	
+	@Test
+	public void containsNumber_should_return_false() {
+		Boolean result = fizzBuzz.containsNumber(5, 3);
 		assertFalse(result);
 	}
 
