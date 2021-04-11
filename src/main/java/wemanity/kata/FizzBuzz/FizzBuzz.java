@@ -50,7 +50,7 @@ public class FizzBuzz {
 	public Boolean isDivisibleBy(int number, int divider) {
 		return number % divider == 0;
 	}
-	
+
 	/**
 	 * return if the number contains the divider
 	 * 
@@ -59,8 +59,7 @@ public class FizzBuzz {
 	 * @return
 	 */
 	public Boolean containsNumber(int number, int divider) {
-		// TODO
-		return true;
+		return Integer.toString(number).contains(Integer.toString(divider));
 	}
 
 }
