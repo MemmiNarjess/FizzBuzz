@@ -2,6 +2,7 @@ package wemanity.kata.FizzBuzz.component;
 
 import org.apache.commons.lang3.StringUtils;
 
+import wemanity.kata.FizzBuzz.common.Validation;
 import wemanity.kata.FizzBuzz.componentI.IRule;
 import wemanity.kata.FizzBuzz.entity.Rule;
 import wemanity.kata.FizzBuzz.visitor.Visitor;
@@ -16,7 +17,9 @@ public class Fizz implements IRule {
 	}
 
 	public String getValueToPrint(int i) {
-		// TODO
+		if (Validation.isDivisibleBy(i, rule.getNumber()) || Validation.containsNumber(i, rule.getNumber())) {
+			return rule.getValue();
+		}
 		return StringUtils.EMPTY;
 	}
 

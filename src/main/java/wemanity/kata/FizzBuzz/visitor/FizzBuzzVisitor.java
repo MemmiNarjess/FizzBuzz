@@ -16,7 +16,15 @@ public class FizzBuzzVisitor implements Visitor {
 	}
 
 	public void print(IRule... args) {
-		//  TODO
+		for (int i = range.getFrom(); i <= range.getTo(); i++) {
+			String str = "";
+			StringBuilder sb = new StringBuilder();
+			for (IRule rule : args) {
+				sb.append(rule.accept(this, i));
+			}
+			str = sb.toString().isEmpty() ? Integer.toString(i) : sb.toString();
+			System.out.println(str);
+		}
 	}
 
 	public String visitFizz(Fizz fizz, int i) {

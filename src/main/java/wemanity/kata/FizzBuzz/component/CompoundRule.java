@@ -3,8 +3,6 @@ package wemanity.kata.FizzBuzz.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import wemanity.kata.FizzBuzz.componentI.IRule;
 import wemanity.kata.FizzBuzz.visitor.Visitor;
 
@@ -13,8 +11,11 @@ public class CompoundRule implements IRule {
 	private List<IRule> children = new ArrayList<IRule>();
 
 	public String getValueToPrint(int i) {
-		// TODO
-		return StringUtils.EMPTY;
+		StringBuilder sb = new StringBuilder();
+		for (IRule rule : children) {
+			sb.append(rule.getValueToPrint(i));
+		}
+		return sb.toString();
 	}
 
 	public String accept(Visitor visitor, int i) {
