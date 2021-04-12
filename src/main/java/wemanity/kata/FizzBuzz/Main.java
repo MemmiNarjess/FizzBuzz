@@ -1,23 +1,31 @@
 package wemanity.kata.FizzBuzz;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import wemanity.kata.FizzBuzz.Entity.Range;
-import wemanity.kata.FizzBuzz.Entity.Rule;
+import wemanity.kata.FizzBuzz.component.Buzz;
+import wemanity.kata.FizzBuzz.component.CompoundRule;
+import wemanity.kata.FizzBuzz.component.Fizz;
+import wemanity.kata.FizzBuzz.componentI.IRule;
+import wemanity.kata.FizzBuzz.entity.Range;
+import wemanity.kata.FizzBuzz.visitor.FizzBuzzVisitor;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Fizz fizz = new Fizz();
+		Buzz buzz = new Buzz();
+		CompoundRule compoundRule = new CompoundRule();
+		compoundRule.add(fizz);
+		compoundRule.add(buzz);
+		// Fist type of call
+		print(compoundRule);
+		// Second type of call
+		print(fizz, buzz);
+	}
+
+	private static void print(IRule... rules) {
 		Range range = new Range(1, 100);
-		Rule rule1 = new Rule(3, "Fizz");
-		Rule rule2 = new Rule(5, "Buzz");
-		List<Rule> rules = new ArrayList<Rule>();
-		rules.add(rule1);
-		rules.add(rule2);
-		FizzBuzz fizzBuzz = new FizzBuzz();
-		fizzBuzz.print(range, rules);
+		FizzBuzzVisitor fizzBuzzVisitor = new FizzBuzzVisitor(range);
+		fizzBuzzVisitor.print(rules);
 	}
 
 }

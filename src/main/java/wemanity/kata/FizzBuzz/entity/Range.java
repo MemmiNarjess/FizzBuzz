@@ -1,4 +1,4 @@
-package wemanity.kata.FizzBuzz.Entity;
+package wemanity.kata.FizzBuzz.entity;
 
 public class Range {
 
