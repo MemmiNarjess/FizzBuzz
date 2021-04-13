@@ -3,6 +3,7 @@ package wemanity.kata.FizzBuzz.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,8 +46,14 @@ public class FizzBuzzController {
 	public ResponseEntity<String> createFizzBuzz(
 			@RequestBody @Parameter(description = "The interval of numbers") Range range) {
 		log.debug("REST request to create Fizz Buzz result : {}", range);
-		// TODO
-		return null;
+		try {
+			if (range.getFrom() == 0 || range.getTo() == 0 || range.getFrom() > range.getTo()) {
+				return new ResponseEntity<String>("Bad request", HttpStatus.BAD_REQUEST);
+			}
+			return new ResponseEntity<String>(fizzBuzzService.createFizzBuzz(range), HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<String>("Internal server error", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 
 	}
 
