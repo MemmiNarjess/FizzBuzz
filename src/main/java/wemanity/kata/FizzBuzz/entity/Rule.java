@@ -2,9 +2,9 @@ package wemanity.kata.FizzBuzz.entity;
 
 public class Rule {
 
-	public int number;
+	private int number;
 
-	public String value;
+	private String value;
 
 	public Rule(int number, String value) {
 		super();

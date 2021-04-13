@@ -1,25 +1,24 @@
-package wemanity.kata.FizzBuzz.component;
+package wemanity.kata.FizzBuzz.visitor.componentImpl;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import wemanity.kata.FizzBuzz.component.Buzz;
-import wemanity.kata.FizzBuzz.component.CompoundRule;
-import wemanity.kata.FizzBuzz.component.Fizz;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.Buzz;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.CompoundRule;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.Fizz;
 
-@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class CompoundRuleTest {
 
 	private CompoundRule compoundRule;
 	private Fizz fizz;
 	private Buzz buzz;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		compoundRule = new CompoundRule();
 		fizz = new Fizz();

@@ -1,30 +1,30 @@
-package wemanity.kata.FizzBuzz.component;
+package wemanity.kata.FizzBuzz.visitor.componentImpl;
 
 import org.apache.commons.lang3.StringUtils;
 
 import wemanity.kata.FizzBuzz.common.Validation;
-import wemanity.kata.FizzBuzz.componentI.IRule;
 import wemanity.kata.FizzBuzz.entity.Rule;
 import wemanity.kata.FizzBuzz.visitor.Visitor;
+import wemanity.kata.FizzBuzz.visitor.component.IRule;
 
-public class Buzz implements IRule {
+public class Fizz implements IRule {
 
 	private Rule rule;
 
-	public Buzz() {
+	public Fizz() {
 		super();
-		this.rule = new Rule(5, "Buzz");
+		this.rule = new Rule(3, "Fizz");
 	}
-	
+
 	public String getValueToPrint(int i) {
 		if (Validation.isDivisibleBy(i, rule.getNumber()) || Validation.containsNumber(i, rule.getNumber())) {
-			return (rule.getValue());
+			return rule.getValue();
 		}
 		return StringUtils.EMPTY;
 	}
 
 	public String accept(Visitor visitor, int i) {
-		return visitor.visitBuzz(this, i);
+		return visitor.visitFizz(this, i);
 	}
 
 	public Rule getRule() {
