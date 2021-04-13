@@ -1,8 +1,8 @@
 package wemanity.kata.FizzBuzz.visitor;
 
-import wemanity.kata.FizzBuzz.component.Buzz;
-import wemanity.kata.FizzBuzz.component.CompoundRule;
-import wemanity.kata.FizzBuzz.component.Fizz;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.Buzz;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.CompoundRule;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.Fizz;
 
 public interface Visitor {
 	

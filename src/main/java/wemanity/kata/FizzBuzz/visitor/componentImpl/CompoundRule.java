@@ -1,10 +1,10 @@
-package wemanity.kata.FizzBuzz.component;
+package wemanity.kata.FizzBuzz.visitor.componentImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import wemanity.kata.FizzBuzz.componentI.IRule;
 import wemanity.kata.FizzBuzz.visitor.Visitor;
+import wemanity.kata.FizzBuzz.visitor.component.IRule;
 
 public class CompoundRule implements IRule {
 

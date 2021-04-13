@@ -1,4 +1,4 @@
-package wemanity.kata.FizzBuzz.componentI;
+package wemanity.kata.FizzBuzz.visitor.component;
 
 import wemanity.kata.FizzBuzz.visitor.Visitor;
 

@@ -1,10 +1,10 @@
 package wemanity.kata.FizzBuzz.visitor;
 
-import wemanity.kata.FizzBuzz.component.Buzz;
-import wemanity.kata.FizzBuzz.component.CompoundRule;
-import wemanity.kata.FizzBuzz.component.Fizz;
-import wemanity.kata.FizzBuzz.componentI.IRule;
 import wemanity.kata.FizzBuzz.entity.Range;
+import wemanity.kata.FizzBuzz.visitor.component.IRule;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.Buzz;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.CompoundRule;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.Fizz;
 
 public class FizzBuzzVisitor implements Visitor {
 
@@ -15,7 +15,8 @@ public class FizzBuzzVisitor implements Visitor {
 		this.range = range;
 	}
 
-	public void print(IRule... args) {
+	public String print(IRule... args) {
+		StringBuilder result = new StringBuilder();
 		for (int i = range.getFrom(); i <= range.getTo(); i++) {
 			String str = "";
 			StringBuilder sb = new StringBuilder();
@@ -23,8 +24,9 @@ public class FizzBuzzVisitor implements Visitor {
 				sb.append(rule.accept(this, i));
 			}
 			str = sb.toString().isEmpty() ? Integer.toString(i) : sb.toString();
-			System.out.println(str);
+			result.append(str).append("\n");
 		}
+		return result.toString();
 	}
 
 	public String visitFizz(Fizz fizz, int i) {

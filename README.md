@@ -40,15 +40,64 @@ Buzz
  * A number is fizz if it is divisible by 3 or if it has a 3 in it
  * A number is buzz if it is divisible by 5 or if it has a 5 in it
 ```
+## Application
+Spring Boot Web application to provide REST API
 
-## Run
+## Source
+
 ```bash
-mvn test
+$ git clone https://github.com/MemmiNarjess/FizzBuzz.git
+```
+## Run
+
+```bash
+$ mvn spring-boot:run
+```
+
+## API
+Method | Path           | Description                    |
+-------|----------------|--------------------------------|
+POST   |/api/fizz-buzz  | create Fizz Buzz text          |
+
+#### Swagger Url
+```bash
+http://localhost:8080/swagger-ui/index.html
+```
+## Test
+
+```bash
+$ mvn test
+```
+
+### Code coverage report
+We used jacoco.
+The report is under this path : ``` FizzBuzz\target\site\jacoco\index.html```
+```bash
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.2</version>
+    <executions>
+	<execution>
+		<goals>
+		    <goal>prepare-agent</goal>
+		</goals>
+	</execution>
+	<execution>
+	        <id>report</id>
+		<phase>test</phase>
+		<goals>
+		    <goal>report</goal>
+		</goals>
+	</execution>
+    </executions>
+</plugin>
 ```
 
 ## Implementation
 
 ```bash
+- Spring boot 2
 - Java 8
 - Git
 - Maven

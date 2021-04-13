@@ -1,21 +1,20 @@
-package wemanity.kata.FizzBuzz.component;
+package wemanity.kata.FizzBuzz.visitor.componentImpl;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import wemanity.kata.FizzBuzz.component.Fizz;
+import wemanity.kata.FizzBuzz.visitor.componentImpl.Fizz;
 
-@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class FizzTest {
 
 	private Fizz fizz;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		fizz = new Fizz();
 	}
